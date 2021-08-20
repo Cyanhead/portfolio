@@ -6,6 +6,7 @@ import {
   Flex,
   Icon,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react';
 
 import { MdHeadset, MdEmail, MdLocationOn } from 'react-icons/md';
@@ -22,12 +23,22 @@ import prof from '../assets/Profile_02.jpg';
 
 const Profile = () => {
   const MobileSocial = props => {
-    return <Icon h={6} w={6} as={props.iconName} />;
+    return (
+      <Link href={props.href}>
+        <Icon
+          h={6}
+          w={6}
+          as={props.iconName}
+          color={useColorModeValue('white', 'gray.800')}
+        />
+      </Link>
+    );
   };
   return (
     <Flex
       bg={useColorModeValue('#F9FAFB', 'gray.600')}
-      p={50}
+      p={{ base: 8, md: 20, lg: 50 }}
+      // p={50}
       w='full'
       alignItems='center'
       justifyContent='center'
@@ -124,12 +135,18 @@ const Profile = () => {
           py={4}
           // try out better contrasting colors
           color='gray.800'
-          bg='twitter.700'
+          bg='twitter.500'
           justifyContent='space-between'
         >
-          <MobileSocial iconName={FaEnvelope} />
-          <MobileSocial iconName={FaPhone} />
-          <MobileSocial iconName={FaGithub} />
+          <MobileSocial
+            href='mailto:bunmioye09@gmail.com'
+            iconName={FaEnvelope}
+          />
+          <MobileSocial href='phoneto:+2348105580152' iconName={FaPhone} />
+          <MobileSocial
+            href='https://www.github.com/Cyanhead'
+            iconName={FaGithub}
+          />
           <MobileSocial iconName={FaLinkedin} />
           <MobileSocial iconName={FaTelegram} />
         </Flex>

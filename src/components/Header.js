@@ -288,7 +288,7 @@ export default function Header(props) {
         shadow={y > height ? 'sm' : undefined}
         transition='box-shadow 0.2s'
         bg={bg}
-        borderTop='6px solid'
+        // borderTop='6px solid'
         borderTopColor='brand.400'
         w='full'
         overflowY='hidden'
@@ -301,14 +301,14 @@ export default function Header(props) {
             h='full'
             px='6'
             alignItems='center'
-            justifyContent='space-between'
+            justifyContent='flex-end'
           >
-            <Flex align='flex-start'>
+            {/* <Flex align='flex-start'>
               <Link href='/'>
-                <HStack>{/* <Logo /> */}</HStack>
+                <HStack><Logo /></HStack>
               </Link>
-            </Flex>
-            <Flex>
+            </Flex> */}
+            {/* <Flex>
               <HStack spacing='5' display={{ base: 'none', md: 'flex' }}>
                 <Popover>
                   <PopoverTrigger>
@@ -356,19 +356,19 @@ export default function Header(props) {
                   Pricing
                 </Button>
               </HStack>
-            </Flex>
-            <Flex justify='flex-end' align='center' color='gray.400'>
-              <HStack spacing='5' display={{ base: 'none', md: 'flex' }}>
+            </Flex> */}
+            <Flex justify='center' color='gray.400'>
+              {/* <HStack spacing='5' display={{ base: 'none', md: 'flex' }}>
                 <Button colorScheme='brand' variant='ghost' size='sm'>
                   Sign in
                 </Button>
                 <Button colorScheme='brand' variant='solid' size='sm'>
                   Sign up
                 </Button>
-              </HStack>
+              </HStack> */}
               <IconButton
                 size='md'
-                fontSize='lg'
+                fontSize={{ base: '3xl', lg: 'lg' }}
                 aria-label={`Switch to ${text} mode`}
                 variant='ghost'
                 color='current'
@@ -376,7 +376,7 @@ export default function Header(props) {
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
               />
-              <IconButton
+              {/* <IconButton
                 display={{ base: 'flex', md: 'none' }}
                 aria-label='Open menu'
                 fontSize='20px'
@@ -384,10 +384,10 @@ export default function Header(props) {
                 variant='ghost'
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
-              />
+              /> */}
             </Flex>
           </Flex>
-          {MobileNavContent}
+          {/* {MobileNavContent} */}
         </chakra.div>
       </chakra.header>
     </React.Fragment>

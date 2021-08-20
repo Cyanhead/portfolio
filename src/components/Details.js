@@ -10,9 +10,26 @@ import {
   Stack,
   GridItem,
   Link,
+  Badge,
+  CircularProgress,
+  CircularProgressLabel,
+  UnorderedList,
+  ListItem,
+  Text,
+
+  // ! ===============================
+
+  // ? maybe create custom em tag?
+  // * increase font size for smaller screens
+  // * reduce paddng for smaller screens
+  // * put 'hello word' Code
+  // * add footer 'made with heart by cyan'
+  // * add colormode to more components
+  // * add colormode to prof socials
+
+  // ! ===============================
 } from '@chakra-ui/react';
 
-import { BsFillBriefcaseFill } from 'react-icons/bs';
 import {
   FaEnvelope,
   FaPhone,
@@ -20,71 +37,62 @@ import {
   FaLinkedin,
   FaTelegram,
 } from 'react-icons/fa';
-
-// GitHub
-// LinkedIn
-// Telegram
+import { Code } from '@chakra-ui/react';
 
 export default function Details() {
-  // custom feature for social buttons
+  // ! custom feature for social buttons
   const Social = props => {
     return (
       <Link
         href={props.href}
         display='block'
-        // alignItems='center'
-        // alignSelf='start'
-        // justifyContent='start'
-        // m={3}
-
-        // px={5}
+        ml={-3}
         px={{ base: 0, lg: 5 }}
         py={4}
-        // py={{ base: 0, lg: 4 }}
-        // pl={0}
-        // border='2px'
-        // bg='twitter.900'
-        // borderColor='tomato'
-        _hover={{ bg: 'gray.900' }}
+        _hover={{ bg: 'gray.600' }}
         _active={{ bg: 'gray.700' }}
       >
-        {/* <Link 
-        // href={props.href}
-        > */}
-        <Flex
-          // justifyContent='center'
-          alignItems='center'
-        >
+        <Flex alignItems='center'>
           <Icon as={props.iconName} mr={3} />
           <chakra.h4>{props.children}</chakra.h4>
         </Flex>
-        {/* </Link> */}
       </Link>
+    );
+  };
+
+  const MultiBadge = props => {
+    let subs = props.subs;
+    return (
+      <>
+        {subs.map(sub => (
+          <Badge mx={2} my={1} ml={0} p={1}>
+            {sub}
+          </Badge>
+        ))}
+      </>
+    );
+  };
+
+  const CustomCircleProgress = props => {
+    return (
+      <CircularProgress
+        value={props.value}
+        color='twitter.500'
+        trackColor={useColorModeValue('gray.200', 'gray.600')}
+        size='70px'
+        thickness='10px'
+        mr={2}
+        mb={2}
+      >
+        <CircularProgressLabel>{props.label}</CircularProgressLabel>
+      </CircularProgress>
     );
   };
 
   const Feature = props => {
     return (
-      <Flex
-      //   border='2px'
-      >
-        <Flex shrink={0}>
-          <Icon
-            boxSize={5}
-            mt={1}
-            mr={2}
-            color={useColorModeValue('brand.500', 'brand.300')}
-            viewBox='0 0 20 20'
-            fill='currentColor'
-          >
-            <path
-              fillRule='evenodd'
-              d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-              clipRule='evenodd'
-            ></path>
-          </Icon>
-        </Flex>
-        <Box ml={4}>
+      <Flex>
+        <Box>
           <chakra.dt
             fontSize='lg'
             fontWeight='bold'
@@ -93,7 +101,7 @@ export default function Details() {
           >
             {props.title}
           </chakra.dt>
-          <chakra.dd mt={2} color={useColorModeValue('gray.500', 'gray.400')}>
+          <chakra.dd mt={2} color={useColorModeValue('gray.700', 'gray.300')}>
             {props.children}
           </chakra.dd>
         </Box>
@@ -103,47 +111,51 @@ export default function Details() {
   return (
     <Flex
       bg={useColorModeValue('#F9FAFB', 'gray.600')}
-      p={50}
+      // p={50}
+      p={{ base: 8, md: 20, lg: 50 }}
       w='auto'
       justifyContent='center'
       alignItems='center'
-      // border='2px'
     >
       <Box
         shadow='xl'
         bg={useColorModeValue('white', 'gray.800')}
-        px={8}
+        px={6}
         py={20}
         mx='auto'
         // border='2px'
       >
         <SimpleGrid
-          //   alignItems='center'
-          columns={{ base: 1, lg: 5 }}
-          // spacingY={{ base: 10, lg: 32 }}
-          //   //   spacingX={{ base: 10, lg: 24 }}
-          //   spacingX={{ base: 10, lg: 1 }}
+          columns={{ base: 1, lg: 6 }}
+          my={10}
+          // justifyContent='center'
+          alignItems='baseline'
+        >
+          <chakra.h1 fontWeight='extrabold' fontSize='3xl'>
+            Hello,
+          </chakra.h1>
+          <GridItem colSpan={5}>
+            <Text>
+              My name is Bunmi Oye, and I am a Front End Web Developer. I began
+              my journey in tech in June 2020, and it have been one of the
+              better decisions in my life. I enjoy problem solving, building of
+              structures, and gaining new knowledge, all of which make me a good
+              addition to any team.
+            </Text>
+          </GridItem>
+        </SimpleGrid>
+        <SimpleGrid
+          columns={{ base: 1, lg: 6 }}
+          // border='2px'
 
           // ! grid box
-          border='2px'
-          borderColor='red.300'
         >
-          {/* <GridItem colSpan={1}> */}
           <Box
             display={{ base: 'none', lg: 'block' }}
-            // w='20'
-            // w={24}
-            // alignSelf='start'
-            // justifyContent='center'
             p={{ base: 0, lg: 3 }}
             // ! row 1
-            border='2px'
-            borderColor='green.200'
           >
-            <Social
-              //  href='/'
-              iconName={FaEnvelope}
-            >
+            <Social href='mailto:bunmioye09@gmail.com' iconName={FaEnvelope}>
               Mail
             </Social>
             <Social
@@ -152,10 +164,7 @@ export default function Details() {
             >
               Phone
             </Social>
-            <Social
-              //  href='/'
-              iconName={FaGithub}
-            >
+            <Social href='https://www.github.com/Cyanhead' iconName={FaGithub}>
               GitHub
             </Social>
             <Social
@@ -170,105 +179,72 @@ export default function Details() {
             >
               Telegram
             </Social>
-
-            {/* <Social href='/' iconName={BsFillBriefcaseFill}>
-              Worry
-            </Social>
-            <Box>
-              <Link src='/'>
-                <Icon as={FaEnvelope} /> Mail
-              </Link>
-            </Box>
-            <Box>
-              <Link>
-                <Icon as={FaPhone} /> Phone
-              </Link>
-            </Box>
-            <Box>
-              <Link>
-                <Icon as={FaGithub} /> GitHub
-              </Link>
-            </Box>
-            <Box border='2px'>
-              <Link>
-                <Icon as={FaLinkedin} /> LinkedIn
-              </Link>
-            </Box>
-            <Box>
-              <Link>
-                <Icon as={FaTelegram} /> Telegram
-              </Link>
-            </Box> */}
-
-            {/* <chakra.h2
-              color={useColorModeValue('brand.500')}
-              fontWeight='semibold'
-              textTransform='uppercase'
-              letterSpacing='wide'
-            >
-              Everything you need
-            </chakra.h2> */}
-            {/* <chakra.h2
-              mb={3}
-              fontSize={{ base: '3xl', md: '4xl' }}
-              fontWeight='extrabold'
-              textAlign={{ base: 'center', sm: 'left' }}
-              color={useColorModeValue('black')}
-              lineHeight='shorter'
-              letterSpacing='tight'
-            >
-              All-in-one platform
-            </chakra.h2> */}
-            {/* <chakra.p
-              mb={6}
-              fontSize={{ base: 'lg', md: 'xl' }}
-              textAlign={{ base: 'center', sm: 'left' }}
-              color={useColorModeValue('gray.600', 'gray.500')}
-            >
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
-            </chakra.p> */}
           </Box>
-          {/* </GridItem> */}
-          <GridItem colSpan={4}>
+          <GridItem colSpan={5}>
             <Stack
               spacing={{ base: 10, md: 0 }}
               display={{ md: 'grid' }}
               gridTemplateColumns={{ md: 'repeat(2,1fr)' }}
               gridColumnGap={{ md: 8 }}
               gridRowGap={{ md: 10 }}
-              //   border='2px'
+              px={{ base: 0, md: 10 }}
               // ! row 2
-              border='2px'
-              borderColor='green.500'
+              // ? remember to specify border color to white
+              borderLeft={{ base: 'none', lg: '2px' }}
+              // borderColor={useColorModeValue('red.500', 'green.800')}
             >
-              <Feature title='Invite team members'>
-                Improve your conversion rates by monitoring exactly what’s going
-                on while your customers are in trial.{' '}
+              <Feature title='Skills'>
+                <MultiBadge
+                  subs={[
+                    'Problem Solving',
+                    'Teamwork',
+                    'Flexibility',
+                    'Time management',
+                    'Empathy',
+                  ]}
+                />
               </Feature>
-              <Feature title='Unify your payments stack'>
-                Manage all your online and offline sales in one place with a
-                single integration, simplifying reporting and reconciliation.
+              <Feature title='Tech Skills'>
+                <CustomCircleProgress value={55} label={'HTML'} />
+                <CustomCircleProgress value={50} label={'CSS'} />
+                <CustomCircleProgress value={40} label={'JS'} />
+                <CustomCircleProgress value={30} label={'React'} />
+                <CustomCircleProgress value={60} label={'Chakra'} />
               </Feature>
-              <Feature title='Own your in-store experience'>
-                Provide a seamless customer experience across channels, like
-                reserving online and picking up in store.
+              <Feature title='Career'>
+                <UnorderedList>
+                  <ListItem>
+                    HNG Internship 8 <br />
+                    <chakra.span fontSize='sm' fontStyle='italic'>
+                      08/2021 - present
+                    </chakra.span>
+                  </ListItem>
+                  <ListItem>
+                    Zuri Training <br />
+                    <chakra.span fontSize='sm' fontStyle='italic'>
+                      03/2021 - 07/2021{' '}
+                    </chakra.span>
+                  </ListItem>
+                  {/* <ListItem>Self Taught</ListItem> */}
+                </UnorderedList>
               </Feature>
-              <Feature title='Grow your platform’s revenue'>
-                Add in-person payments to your platform or marketplace. Using
-                Terminal with Connect.
+              <Feature title='Projects'>
+                <UnorderedList>
+                  <ListItem>Stocka (Zuri Training)</ListItem>
+                </UnorderedList>
               </Feature>
-              <Feature title='Clear overview for efficient tracking'>
-                Handle your subscriptions and transactions efficiently with the
-                clear overview in Dashboard. Fea
+              <Feature title='Education'>
+                <UnorderedList>
+                  <ListItem>
+                    Federal University, Oye-Ekiti <br />
+                    <chakra.span fontSize='sm' fontStyle='italic'>
+                      09/2016 - present
+                    </chakra.span>
+                  </ListItem>
+                </UnorderedList>
               </Feature>
-              <Feature title='Decide how you integrate Payments'>
-                Love to code? Decide how you integrate Payments and build
-                advanced and reliable products yourself from scratch.
-              </Feature>
-              <Feature title='Decide how you integrate Payments'>
-                Love to code? Decide how you integrate Payments and build
-                advanced and reliable products yourself from scratch.
+              <Feature title='Interests'>
+                <MultiBadge subs={['Video games', 'Anime', 'Music', 'Books']} />
               </Feature>
             </Stack>
           </GridItem>
