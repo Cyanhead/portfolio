@@ -9,13 +9,17 @@ import {
   Link,
 } from '@chakra-ui/react';
 
-import { MdHeadset, MdEmail, MdLocationOn } from 'react-icons/md';
+import {
+  // MdHeadset,
+  MdEmail,
+  MdLocationOn,
+} from 'react-icons/md';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 import {
   FaEnvelope,
   FaPhone,
   FaGithub,
-  FaLinkedin,
+  // FaLinkedin,
   FaTelegram,
 } from 'react-icons/fa';
 
@@ -147,7 +151,7 @@ const Profile = () => {
             href='https://www.github.com/Cyanhead'
             iconName={FaGithub}
           />
-          <MobileSocial iconName={FaLinkedin} />
+          {/* <MobileSocial iconName={FaLinkedin} /> */}
           <MobileSocial iconName={FaTelegram} />
         </Flex>
       </Box>

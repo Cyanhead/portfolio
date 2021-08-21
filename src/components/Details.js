@@ -16,8 +16,10 @@ import {
   UnorderedList,
   ListItem,
   Text,
+  Image,
+  VStack,
 
-  // ! ===============================
+  // ! ======================================
 
   // ? maybe create custom em tag?
   // * increase font size for smaller screens
@@ -26,21 +28,26 @@ import {
   // * add footer 'made with heart by cyan'
   // * add colormode to more components
   // * add colormode to prof socials
+  // * open links in new tab
 
-  // ! ===============================
+  // ! ======================================
 } from '@chakra-ui/react';
 
 import {
   FaEnvelope,
   FaPhone,
   FaGithub,
-  FaLinkedin,
+  // FaLinkedin,
   FaTelegram,
 } from 'react-icons/fa';
-import { Code } from '@chakra-ui/react';
+
+import hng from '../assets/logo_hng.jpg';
+import zuri from '../assets/logo_zuri.jpg';
+// import i4g from '../assets/logo_i4g.jpg';
+// import { Code } from '@chakra-ui/react';
 
 export default function Details() {
-  // ! custom feature for social buttons
+  //  custom feature for social buttons
   const Social = props => {
     return (
       <Link
@@ -51,6 +58,7 @@ export default function Details() {
         py={4}
         _hover={{ bg: 'gray.600' }}
         _active={{ bg: 'gray.700' }}
+        isExternal
       >
         <Flex alignItems='center'>
           <Icon as={props.iconName} mr={3} />
@@ -108,6 +116,7 @@ export default function Details() {
       </Flex>
     );
   };
+
   return (
     <Flex
       bg={useColorModeValue('#F9FAFB', 'gray.600')}
@@ -123,11 +132,12 @@ export default function Details() {
         px={6}
         py={20}
         mx='auto'
-        // border='2px'
+        border='2px'
       >
         <SimpleGrid
           columns={{ base: 1, lg: 6 }}
           my={10}
+          px={{ base: 0, md: 10 }}
           // justifyContent='center'
           alignItems='baseline'
         >
@@ -137,8 +147,8 @@ export default function Details() {
           <GridItem colSpan={5}>
             <Text>
               My name is Bunmi Oye, and I am a Front End Web Developer. I began
-              my journey in tech in June 2020, and it have been one of the
-              better decisions in my life. I enjoy problem solving, building of
+              my journey in tech in June 2020, and it has been one of the better
+              decisions in my life. I enjoy problem solving, building of
               structures, and gaining new knowledge, all of which make me a good
               addition to any team.
             </Text>
@@ -167,12 +177,12 @@ export default function Details() {
             <Social href='https://www.github.com/Cyanhead' iconName={FaGithub}>
               GitHub
             </Social>
-            <Social
+            {/* <Social
               //  href='/'
               iconName={FaLinkedin}
             >
               LinkedIn
-            </Social>
+            </Social> */}
             <Social
               //  href='/'
               iconName={FaTelegram}
@@ -190,7 +200,7 @@ export default function Details() {
               px={{ base: 0, md: 10 }}
               // ! row 2
               // ? remember to specify border color to white
-              borderLeft={{ base: 'none', lg: '2px' }}
+              borderLeft={{ base: 'none', lg: '1px' }}
               // borderColor={useColorModeValue('red.500', 'green.800')}
             >
               <Feature title='Skills'>
@@ -249,6 +259,25 @@ export default function Details() {
             </Stack>
           </GridItem>
         </SimpleGrid>
+        <VStack
+          py={5}
+          // px={5}
+          m={10}
+          // justifyContent='flex-start'
+          alignItems='flex-start'
+          // bg='red.500'
+          // border='3px solid'
+        >
+          <Link href='https://training.zuri.team/' isExternal>
+            <Image src={zuri} alt='logos' w={20} />
+          </Link>
+          <Link href='https://internship.zuri.team/' isExternal>
+            <Image src={hng} alt='logos' w={20} />
+          </Link>
+          {/* <Link isExternal>
+            <Image src={i4g} alt='logos' w={20} />
+          </Link> */}
+        </VStack>
       </Box>
     </Flex>
   );
