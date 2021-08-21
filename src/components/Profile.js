@@ -17,10 +17,10 @@ import {
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 import {
   FaEnvelope,
-  FaPhone,
+  // FaPhone,
   FaGithub,
-  // FaLinkedin,
-  FaTelegram,
+  FaLinkedin,
+  // FaTelegram,
 } from 'react-icons/fa';
 
 import prof from '../assets/Profile_02.jpg';
@@ -28,7 +28,7 @@ import prof from '../assets/Profile_02.jpg';
 const Profile = () => {
   const MobileSocial = props => {
     return (
-      <Link href={props.href}>
+      <Link href={props.href} isExternal>
         <Icon
           h={6}
           w={6}
@@ -46,7 +46,7 @@ const Profile = () => {
       w='full'
       alignItems='center'
       justifyContent='center'
-      //   border='2px'
+      // border='1px'
     >
       <Box
         w='sm'
@@ -55,6 +55,8 @@ const Profile = () => {
         shadow='lg'
         rounded='lg'
         overflow='hidden'
+        border='1px'
+        borderColor={useColorModeValue('gray.400', 'gray.500')}
       >
         <Image
           w='full'
@@ -146,13 +148,16 @@ const Profile = () => {
             href='mailto:bunmioye09@gmail.com'
             iconName={FaEnvelope}
           />
-          <MobileSocial href='phoneto:+2348105580152' iconName={FaPhone} />
+          {/* <MobileSocial href='phoneto:+2348105580152' iconName={FaPhone} /> */}
           <MobileSocial
             href='https://www.github.com/Cyanhead'
             iconName={FaGithub}
           />
-          {/* <MobileSocial iconName={FaLinkedin} /> */}
-          <MobileSocial iconName={FaTelegram} />
+          <MobileSocial
+            href='https://www.linkedin.com/in/bunmi-oye-95a476200/'
+            iconName={FaLinkedin}
+          />
+          {/* <MobileSocial iconName={FaTelegram} /> */}
         </Flex>
       </Box>
     </Flex>

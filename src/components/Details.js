@@ -35,10 +35,10 @@ import {
 
 import {
   FaEnvelope,
-  FaPhone,
+  // FaPhone,
   FaGithub,
-  // FaLinkedin,
-  FaTelegram,
+  FaLinkedin,
+  // FaTelegram,
 } from 'react-icons/fa';
 
 import hng from '../assets/logo_hng.jpg';
@@ -132,7 +132,8 @@ export default function Details() {
         px={6}
         py={20}
         mx='auto'
-        border='2px'
+        border='1px'
+        borderColor={useColorModeValue('gray.400', 'gray.500')}
       >
         <SimpleGrid
           columns={{ base: 1, lg: 6 }}
@@ -168,27 +169,28 @@ export default function Details() {
             <Social href='mailto:bunmioye09@gmail.com' iconName={FaEnvelope}>
               Mail
             </Social>
-            <Social
+            {/* <Social
               //  href='/'
               iconName={FaPhone}
             >
               Phone
-            </Social>
+            </Social> */}
             <Social href='https://www.github.com/Cyanhead' iconName={FaGithub}>
               GitHub
             </Social>
-            {/* <Social
+            <Social
+              href='https://www.linkedin.com/in/bunmi-oye-95a476200/'
               //  href='/'
               iconName={FaLinkedin}
             >
               LinkedIn
-            </Social> */}
-            <Social
+            </Social>
+            {/* <Social
               //  href='/'
               iconName={FaTelegram}
             >
               Telegram
-            </Social>
+            </Social> */}
           </Box>
           <GridItem colSpan={5}>
             <Stack
@@ -215,11 +217,11 @@ export default function Details() {
                 />
               </Feature>
               <Feature title='Tech Skills'>
-                <CustomCircleProgress value={55} label={'HTML'} />
+                <CustomCircleProgress value={65} label={'HTML'} />
                 <CustomCircleProgress value={50} label={'CSS'} />
                 <CustomCircleProgress value={40} label={'JS'} />
                 <CustomCircleProgress value={30} label={'React'} />
-                <CustomCircleProgress value={60} label={'Chakra'} />
+                <CustomCircleProgress value={55} label={'Chakra'} />
               </Feature>
               <Feature title='Career'>
                 <UnorderedList>
@@ -268,13 +270,23 @@ export default function Details() {
           // bg='red.500'
           // border='3px solid'
         >
-          <Link href='https://training.zuri.team/' isExternal>
+          <Link
+            border='1px'
+            borderColor='gray.600'
+            href='https://training.zuri.team/'
+            isExternal
+          >
             <Image src={zuri} alt='logos' w={20} />
           </Link>
-          <Link href='https://internship.zuri.team/' isExternal>
+          <Link
+            border='1px'
+            borderColor='gray.600'
+            href='https://internship.zuri.team/'
+            isExternal
+          >
             <Image src={hng} alt='logos' w={20} />
           </Link>
-          {/* <Link isExternal>
+          {/* <Link border='1px' isExternal>
             <Image src={i4g} alt='logos' w={20} />
           </Link> */}
         </VStack>
