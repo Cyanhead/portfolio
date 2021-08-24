@@ -87,7 +87,7 @@ const Profile = () => {
           </chakra.h1>
 
           <chakra.p py={2} color={useColorModeValue('gray.700', 'gray.400')}>
-            Front End Developer (Trainee)
+            Frontend Developer (Intern)
           </chakra.p>
 
           <Flex
@@ -105,7 +105,7 @@ const Profile = () => {
 
             <chakra.h1 px={2} fontSize='sm'>
               {/* Zuri ● Internship */}
-              Zuri • Internship
+              Zuri • Internship (HNGi8)
             </chakra.h1>
           </Flex>
 

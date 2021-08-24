@@ -11,24 +11,19 @@ import {
   GridItem,
   Link,
   Badge,
-  CircularProgress,
-  CircularProgressLabel,
+  // CircularProgress,
+  // CircularProgressLabel,
   UnorderedList,
   ListItem,
   Text,
   Image,
-  VStack,
+  HStack,
 
   // ! ======================================
 
-  // ? maybe create custom em tag?
   // * increase font size for smaller screens
   // * reduce paddng for smaller screens
-  // * put 'hello word' Code
   // * add footer 'made with heart by cyan'
-  // * add colormode to more components
-  // * add colormode to prof socials
-  // * open links in new tab
 
   // ! ======================================
 } from '@chakra-ui/react';
@@ -81,21 +76,21 @@ export default function Details() {
     );
   };
 
-  const CustomCircleProgress = props => {
-    return (
-      <CircularProgress
-        value={props.value}
-        color='twitter.500'
-        trackColor={useColorModeValue('gray.200', 'gray.600')}
-        size='70px'
-        thickness='10px'
-        mr={2}
-        mb={2}
-      >
-        <CircularProgressLabel>{props.label}</CircularProgressLabel>
-      </CircularProgress>
-    );
-  };
+  // const CustomCircleProgress = props => {
+  //   return (
+  //     <CircularProgress
+  //       value={props.value}
+  //       color='twitter.500'
+  //       trackColor={useColorModeValue('gray.200', 'gray.600')}
+  //       size='70px'
+  //       thickness='10px'
+  //       mr={2}
+  //       mb={2}
+  //     >
+  //       <CircularProgressLabel>{props.label}</CircularProgressLabel>
+  //     </CircularProgress>
+  //   );
+  // };
 
   const Feature = props => {
     return (
@@ -147,11 +142,12 @@ export default function Details() {
           </chakra.h1>
           <GridItem colSpan={5}>
             <Text>
-              My name is Bunmi Oye, and I am a Front End Web Developer. I began
-              my journey in tech in June 2020, and it has been one of the better
-              decisions in my life. I enjoy problem solving, building of
-              structures, and gaining new knowledge, all of which make me a good
-              addition to any team.
+              My name is Bunmi Oye, and I am a Front End Web Developer.
+              <br /> I began my journey in tech in June 2020, and it has been
+              one of the better decisions in my life. I am able to convert
+              beautiful designs to neat code. <br />I enjoy problem solving,
+              building of structures, and gaining new knowledge, all of which
+              make me a good addition to any team.
             </Text>
           </GridItem>
         </SimpleGrid>
@@ -208,22 +204,34 @@ export default function Details() {
               <Feature title='Skills'>
                 <MultiBadge
                   subs={[
-                    'Problem Solving',
-                    'Teamwork',
-                    'Flexibility',
-                    'Time management',
-                    'Empathy',
+                    'problem solving',
+                    'teamwork',
+                    'flexibility',
+                    'time management',
+                    'collaboration',
                   ]}
                 />
               </Feature>
               <Feature title='Tech Skills'>
-                <CustomCircleProgress value={65} label={'HTML'} />
+                <MultiBadge
+                  subs={[
+                    'HTML',
+                    'CSS',
+                    'JavaScript',
+                    'Bootstrap',
+                    'React',
+                    'Chakra UI',
+                    'Figma',
+                  ]}
+                />
+
+                {/* <CustomCircleProgress value={65} label={'HTML'} />
                 <CustomCircleProgress value={50} label={'CSS'} />
                 <CustomCircleProgress value={40} label={'JS'} />
                 <CustomCircleProgress value={30} label={'React'} />
-                <CustomCircleProgress value={55} label={'Chakra'} />
+                <CustomCircleProgress value={55} label={'Chakra'} /> */}
               </Feature>
-              <Feature title='Career'>
+              <Feature title='Experience'>
                 <UnorderedList>
                   <ListItem>
                     HNG Internship 8 <br />
@@ -256,17 +264,27 @@ export default function Details() {
                 </UnorderedList>
               </Feature>
               <Feature title='Interests'>
-                <MultiBadge subs={['Video games', 'Anime', 'Music', 'Books']} />
+                <MultiBadge
+                  subs={[
+                    'Video games',
+                    'Anime',
+                    'Music',
+                    'Books',
+                    'foreign food',
+                    'tourism',
+                  ]}
+                />
               </Feature>
             </Stack>
           </GridItem>
         </SimpleGrid>
-        <VStack
+        <HStack
           py={5}
           // px={5}
-          m={10}
-          // justifyContent='flex-start'
-          alignItems='flex-start'
+          my={10}
+          mx={{ base: 0, md: 10 }}
+          justifyContent='flex-end'
+          alignItems='flex-end'
           // bg='red.500'
           // border='3px solid'
         >
@@ -289,7 +307,7 @@ export default function Details() {
           {/* <Link border='1px' isExternal>
             <Image src={i4g} alt='logos' w={20} />
           </Link> */}
-        </VStack>
+        </HStack>
       </Box>
     </Flex>
   );
