@@ -142,12 +142,15 @@ export default function Details() {
           </chakra.h1>
           <GridItem colSpan={5}>
             <Text>
-              My name is Bunmi Oye, and I am a Front End Web Developer.
-              <br /> I began my journey in tech in June 2020, and it has been
-              one of the better decisions in my life. I am able to convert
-              beautiful designs to neat code. <br />I enjoy problem solving,
-              building of structures, and gaining new knowledge, all of which
-              make me a good addition to any team.
+              <br />
+              My name is Bunmi Oye, and I am a Frontend Web Developer with an
+              intermediate proficiency level with React.
+              <br />
+              I have an eye for design and can convert beautiful web designs to
+              neat code.
+              <br />I enjoy problem-solving, the building of structures, and
+              gaining new knowledge and experience, all of which make me a good
+              addition to any team.
             </Text>
           </GridItem>
         </SimpleGrid>

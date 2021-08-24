@@ -87,7 +87,7 @@ const Profile = () => {
           </chakra.h1>
 
           <chakra.p py={2} color={useColorModeValue('gray.700', 'gray.400')}>
-            Frontend Developer (Intern)
+            Frontend Developer
           </chakra.p>
 
           <Flex
